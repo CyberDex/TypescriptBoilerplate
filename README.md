@@ -1,4 +1,4 @@
-## ZombieLand
+## Webpack boilerplate
 
 Install dependencies:
 ```
