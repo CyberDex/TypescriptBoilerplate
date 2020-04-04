@@ -1,23 +1,40 @@
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const merge = require('webpack-merge');
-const common = require('./webpack.common.js');
+const common = require('./webpack.common.js')
 const build = require('../build.json')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const JavaScriptObfuscator = require('webpack-obfuscator')
 
-module.exports = [merge(common, {
+module.exports = merge(common, {
     mode: 'production',
+    output: {
+        filename: 'js/[name].[contenthash].bundle.js',
+        chunkFilename: 'js/[name].[contenthash].chunk.js'
+    },
     optimization: {
         minimizer: [new UglifyJsPlugin()],
-    }
-}),
-{
-    entry: build.input,
-    output: build.output,
-    mode: 'production',
+        splitChunks: {
+            cacheGroups: {
+                commons: {
+                    filename: '[name].[contenthash].bundle.js'
+                }
+            }
+        }
+    },
     plugins: [
         new CleanWebpackPlugin(),
-        new CopyWebpackPlugin([build.assets]),
+        new JavaScriptObfuscator(
+            {
+                rotateStringArray: true,
+                stringArray: true,
+                stringArrayThreshold: 0.75
+            },
+            ['vendors.*.js']
+        ),
+        new CopyWebpackPlugin([{
+            "from": build.assetsFolder,
+            "ignore": [build.indexHTML]
+        }])
     ]
-}
-];
+})

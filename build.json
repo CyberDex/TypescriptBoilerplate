@@ -1,17 +1,10 @@
 {
     "title": "Webpack",
-    "input": {
-        "index": "./src/main.ts",
+    "entryPoint": {
+        "main": "./src/main.ts",
         "preloader": "./src/preloader.ts"
     },
-    "output": {
-        "filename": "js/[name].js"
-    },
-    "assets": {
-        "from": "assets",
-        "ignore": [
-            "assets/index.html"
-        ]
-    },
-    "indexHTML": "assets/index.html"
+    "sourceFolder": "./src",
+    "assetsFolder": "./assets",
+    "indexHTML": "./assets/index.html"
 }
