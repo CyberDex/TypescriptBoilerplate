@@ -12,7 +12,8 @@ module.exports = merge(common, {
         host: '0.0.0.0',
         overlay: true,
         hot: true,
-        compress: true
+        compress: true,
+        watchContentBase: true
     },
     plugins: [
         new FriendlyErrorsWebpackPlugin()
