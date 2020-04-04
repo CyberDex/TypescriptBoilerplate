@@ -9,9 +9,9 @@ module.exports = merge(common, {
     devServer: {
         contentBase: build.assets.from,
         quiet: true,
+        clientLogLevel: 'silent',
         host: '0.0.0.0',
         overlay: true,
-        hot: true,
         compress: true,
         watchContentBase: true
     },
