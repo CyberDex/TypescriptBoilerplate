@@ -1,5 +1,6 @@
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const HTMLWebpackPlugin = require('html-webpack-plugin')
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js')
 const build = require('../build.json')
@@ -35,6 +36,13 @@ module.exports = merge(common, {
         new CopyWebpackPlugin([{
             "from": build.assetsFolder,
             "ignore": [build.indexHTML]
-        }])
+        }]),
+        new HTMLWebpackPlugin({
+            template: build.indexHTML,
+            templateParameters: build,
+            minify: {
+                collapseWhitespace: true
+            }
+        })
     ]
 })

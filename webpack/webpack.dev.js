@@ -1,4 +1,5 @@
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
+const HTMLWebpackPlugin = require('html-webpack-plugin')
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 const build = require('../build.json')
@@ -16,6 +17,10 @@ module.exports = merge(common, {
         watchContentBase: true
     },
     plugins: [
-        new FriendlyErrorsWebpackPlugin()
+        new FriendlyErrorsWebpackPlugin(),
+        new HTMLWebpackPlugin({
+            template: build.indexHTML,
+            templateParameters: build
+        })
     ]
 });
