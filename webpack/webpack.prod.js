@@ -1,5 +1,6 @@
-const HTMLWebpackPlugin = require('html-webpack-plugin')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 const build = require('../build.json')
@@ -10,10 +11,7 @@ module.exports = merge(common, {
         minimizer: [new UglifyJsPlugin()],
     },
     plugins: [
-        new HTMLWebpackPlugin({
-            template: build.indexHTML,
-            templateParameters: build,
-            minify: true,
-        })
+        new CleanWebpackPlugin(),
+        new CopyWebpackPlugin(build.assets),
     ]
 });

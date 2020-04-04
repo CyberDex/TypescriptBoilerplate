@@ -1,7 +1,6 @@
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
-const HTMLWebpackPlugin = require('html-webpack-plugin')
-const build = require('../build.json')
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 
 module.exports = merge(common, {
     mode: 'development',
@@ -13,9 +12,6 @@ module.exports = merge(common, {
         hot: true,
     },
     plugins: [
-        new HTMLWebpackPlugin({
-            template: build.indexHTML,
-            templateParameters: build,
-        })
+        new FriendlyErrorsWebpackPlugin()
     ]
 });
