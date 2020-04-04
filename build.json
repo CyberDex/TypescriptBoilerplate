@@ -7,13 +7,11 @@
     "output": {
         "filename": "js/[name].js"
     },
-    "assets": [
-        {
-            "from": "assets",
-            "ignore": [
-                "assets/index.html"
-            ]
-        }
-    ],
+    "assets": {
+        "from": "assets",
+        "ignore": [
+            "assets/index.html"
+        ]
+    },
     "indexHTML": "assets/index.html"
 }

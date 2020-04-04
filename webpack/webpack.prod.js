@@ -17,7 +17,7 @@ module.exports = [merge(common, {
     mode: 'production',
     plugins: [
         new CleanWebpackPlugin(),
-        new CopyWebpackPlugin(build.assets),
+        new CopyWebpackPlugin([build.assets]),
     ]
 }
 ];

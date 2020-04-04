@@ -7,7 +7,7 @@ module.exports = merge(common, {
     mode: 'development',
     devtool: 'cheap-module-eval-source-map',
     devServer: {
-        contentBase: build.assets[0].from,
+        contentBase: build.assets.from,
         quiet: true,
         host: '0.0.0.0',
         overlay: true,
