@@ -5,11 +5,11 @@
         "preloader": "./src/preloader.ts"
     },
     "output": {
-        "filename": "assets/js/[name].js"
+        "filename": "js/[name].js"
     },
     "assets": [
         {
-            "from": "assets/**/*",
+            "from": "assets",
             "ignore": [
                 "assets/index.html"
             ]
