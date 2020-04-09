@@ -1,4 +1,4 @@
-## Webpack boilerplate
+# Webpack boilerplate
 
 Install dependencies:
 ```
