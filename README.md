@@ -12,12 +12,7 @@ npm start
 
 #### Building
 
-Development build:
-```
-npm run build
-```
-
 Production build:
 ```
-npm run production
+npm run build
 ```
