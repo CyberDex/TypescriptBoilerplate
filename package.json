@@ -1,0 +1,11 @@
+{
+	"scripts": {
+		"start": "npm run dev",
+		"dev": "webpack-dev-server --config webpack/webpack.dev.js",
+		"build": "webpack --config webpack/webpack.prod.js"
+	},
+	"repository": "https://github.com/CyberDex/WebpackBoiler",
+	"license": "MIT",
+	"devDependencies": {},
+	"dependencies": {}
+}
