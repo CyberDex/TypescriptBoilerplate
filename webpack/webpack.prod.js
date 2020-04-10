@@ -1,4 +1,4 @@
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
 const merge = require('webpack-merge');
@@ -14,7 +14,6 @@ module.exports = merge(common, {
         chunkFilename: 'js/[name].[contenthash].chunk.js'
     },
     optimization: {
-        minimizer: [new UglifyJsPlugin()],
         splitChunks: {
             cacheGroups: {
                 commons: {
@@ -33,6 +32,12 @@ module.exports = merge(common, {
             },
             ['vendors.*.js']
         ),
+        new TerserPlugin({
+            parallel: true,
+            terserOptions: {
+                ecma: 6,
+            },
+        }),
         new CopyWebpackPlugin([{
             "from": build.assetsFolder,
             "ignore": [build.indexHTML]

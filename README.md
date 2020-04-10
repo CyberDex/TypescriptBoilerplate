@@ -1,18 +1,17 @@
 # Webpack boilerplate
 
-Install dependencies:
+Install dependencies
 ```
 npm i
 ```
 
-Run on https://localhost:8080
+#### Local build
 ```
 npm start
 ```
+Run on https://localhost:8080
 
-#### Building
-
-Production build:
+#### Production build
 ```
 npm run build
 ```
