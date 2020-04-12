@@ -1,11 +1,13 @@
 {
 	"scripts": {
 		"start": "npm run dev",
-		"dev": "webpack-dev-server --config webpack/webpack.dev.js",
-		"build": "webpack --config webpack/webpack.prod.js"
+		"dev": "cross-env NODE_ENV=development webpack-dev-server",
+		"build": "cross-env NODE_ENV=production webpack"
 	},
-	"repository": "https://github.com/CyberDex/WebpackBoiler",
+	"repository": "https://github.com/CyberDex/typescript-boilerplate",
 	"license": "MIT",
-	"devDependencies": {},
+	"devDependencies": {
+		"webpack-typescript-boilerplate": "^1.0.7"
+	},
 	"dependencies": {}
 }
