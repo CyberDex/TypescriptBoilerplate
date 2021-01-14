@@ -7,7 +7,7 @@
 	"repository": "https://github.com/CyberDex/typescript-boilerplate",
 	"license": "MIT",
 	"devDependencies": {
-		"webpack-typescript-boilerplate": "^1.0.9"
+		"webpack-typescript-boilerplate": "^1.1.1"
 	},
 	"dependencies": {}
 }
