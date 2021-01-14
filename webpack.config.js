@@ -1,5 +1,5 @@
 
-const webpackConfig = require('webpack-typescript-boilerplate')
+const webpackConfig = require('../webpack-typescript-boilerplate/webpack')
 
 module.exports = webpackConfig({
     entryPoints: {
@@ -10,5 +10,6 @@ module.exports = webpackConfig({
     HTMLTemplate: "assets/index.html",
     templateParameters: {
         "title": ""
-    }
+    },
+    analyze: true
 })
